@@ -1,6 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
+import 'package:notes_app/Shared/Constant.dart';
 
 class CustomTextFormField extends StatelessWidget {
   final GlobalKey<FormState>? formKey;
@@ -14,6 +15,8 @@ class CustomTextFormField extends StatelessWidget {
   final Function(String)? onChanged;
   final Function(String)? onFieldSubmitted;
   final double radius;
+  final int minLines;
+  final int maxLines;
 
   const CustomTextFormField({
     super.key,
@@ -28,6 +31,8 @@ class CustomTextFormField extends StatelessWidget {
     this.onChanged,
      this.onFieldSubmitted,
     this.radius =10,
+    this.minLines = 1,
+    this.maxLines = 1,
   });
 
   @override
@@ -37,9 +42,12 @@ class CustomTextFormField extends StatelessWidget {
       keyboardType: keyboardType,
       controller: controller,
       obscureText: passwordSecure!,
+      maxLines:maxLines,
+      minLines:minLines ,
+        cursorColor:kPrimaryColor,
       decoration: InputDecoration(
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(radius)),
-        label: Text(label, maxLines: 1, overflow: TextOverflow.ellipsis),
+        label: Text(label, maxLines: 1 ,  overflow: TextOverflow.ellipsis , ),
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon
       ),

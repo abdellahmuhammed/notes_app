@@ -11,7 +11,7 @@ ThemeData lightThem() {
 
 ThemeData darkThem() {
   return _themData(
-    backgroundColor: Colors.black12,
+    backgroundColor: const Color(0xFF2D2F31),
     textColor: Colors.white,
     statusBarIconBrightness: Brightness.light,
   );
@@ -52,6 +52,32 @@ ThemeData _themData({
         fontSize: 30.0,
         fontWeight: FontWeight.bold,
       ),
+    ),
+
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+      iconSize: 35,
+      backgroundColor: kPrimaryColor,
+      foregroundColor: backgroundColor,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+      ),
+    ),
+
+    inputDecorationTheme: InputDecorationTheme(
+      // filled: true,
+      // fillColor: Colors.grey.withOpacity(0.7),
+      enabledBorder: _buildOutlineInputBorder(),
+      focusedBorder: _buildOutlineInputBorder(kPrimaryColor),
+      border: _buildOutlineInputBorder(),
+      labelStyle: const TextStyle(
+        overflow: TextOverflow.ellipsis,
+        color: kPrimaryColor,
+        fontSize: 25.0,
+        fontWeight: FontWeight.bold,
+      ),
+      iconColor: kPrimaryColor,
+      suffixIconColor: kPrimaryColor,
+      prefixIconColor: kPrimaryColor,
     ),
     // iconTheme: _buildIconThemeData(color: textColor),
     // iconButtonTheme: IconButtonThemeData(
@@ -114,62 +140,30 @@ ThemeData _themData({
     //     ),
     //   ),
     // ),
-    inputDecorationTheme: InputDecorationTheme(
-      // filled: true,
-      // fillColor: Colors.grey.withOpacity(0.7),
-      enabledBorder: OutlineInputBorder(
-        borderSide: BorderSide(
-          color: textColor,
-        ),
-        borderRadius: BorderRadius.circular(8),
-      ),
-      focusedBorder: OutlineInputBorder(
-        borderSide: BorderSide(
-          color: textColor,
-        ),
-        borderRadius: BorderRadius.circular(8),
-      ),
-      border: OutlineInputBorder(
-        borderSide: BorderSide(
-          color: textColor,
-        ),
-        borderRadius: BorderRadius.circular(8),
-      ),
-      labelStyle: const TextStyle(
-        overflow: TextOverflow.ellipsis,
-        color: Colors.grey,
-        fontSize: 25.0,
-        fontWeight: FontWeight.bold,
-      ),
-      iconColor: kPrimaryColor,
-      suffixIconColor: kPrimaryColor,
-      prefixIconColor: kPrimaryColor,
-    ),
-    floatingActionButtonTheme: FloatingActionButtonThemeData(
-      iconSize: 35,
-      backgroundColor: Colors.blueGrey,
-      foregroundColor: backgroundColor,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(50),
-      ),
-    ),
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
-      backgroundColor: kPrimaryColor,
-      selectedItemColor: textColor,
-      unselectedItemColor: backgroundColor,
-      selectedIconTheme: _buildIconThemeData(
-        color: textColor,
-        size: 20,
-      ),
-      selectedLabelStyle: _buildTextStyle(
-        color: backgroundColor,
-        size: 20,
-      ),
-      unselectedIconTheme:
-          _buildIconThemeData(color: Colors.lightBlueAccent, size: 20),
-      unselectedLabelStyle: _buildTextStyle(
-          color: textColor, fontWeight: FontWeight.normal, size: 15),
-    ),
+    // bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    //   backgroundColor: kPrimaryColor,
+    //   selectedItemColor: textColor,
+    //   unselectedItemColor: backgroundColor,
+    //   selectedIconTheme: _buildIconThemeData(
+    //     color: textColor,
+    //     size: 20,
+    //   ),
+    //   selectedLabelStyle: _buildTextStyle(
+    //     color: backgroundColor,
+    //     size: 20,
+    //   ),
+    //   unselectedIconTheme:
+    //       _buildIconThemeData(color: Colors.lightBlueAccent, size: 20),
+    //   unselectedLabelStyle: _buildTextStyle(
+    //       color: textColor, fontWeight: FontWeight.normal, size: 15),
+    // ),
+  );
+}
+
+OutlineInputBorder _buildOutlineInputBorder([Color? color = Colors.white]) {
+  return OutlineInputBorder(
+    borderSide: BorderSide(color: color ?? kPrimaryColor, width: 2),
+    borderRadius: BorderRadius.circular(8),
   );
 }
 
