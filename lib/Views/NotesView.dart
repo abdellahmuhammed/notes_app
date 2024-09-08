@@ -1,3 +1,4 @@
+// ignore_for_file: file_names
 import 'package:flutter/material.dart';
 import 'package:notes_app/Widgets/NoteFloatingActionButton.dart';
 import 'package:notes_app/Widgets/NoteViewBody.dart';

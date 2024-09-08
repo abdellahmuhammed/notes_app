@@ -1,3 +1,4 @@
+// ignore_for_file: file_names
 //Custom Material Button To Send Data from Login screen to Home screen or from Register Screen to home screen
 import 'package:flutter/material.dart';
 import 'package:notes_app/Shared/Constant.dart';

@@ -1,3 +1,4 @@
+// ignore_for_file: unused_element
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:notes_app/Shared/Constant.dart';
@@ -170,6 +171,7 @@ _buildTextStyle(
     FontWeight fontWeight = FontWeight.bold}) {
   return TextStyle(color: color, fontSize: size, fontWeight: fontWeight);
 }
+
 
 _buildIconThemeData({required Color color, double size = 30}) {
   return IconThemeData(
