@@ -1,5 +1,6 @@
 // ignore_for_file: file_names
 import 'package:flutter/material.dart';
+import 'package:notes_app/Shared/component.dart';
 import 'package:notes_app/Widgets/NoteFloatingActionButton.dart';
 import 'package:notes_app/Widgets/NoteViewBody.dart';
 
@@ -11,7 +12,7 @@ class NotesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: noteViewAppBar(),
+      appBar: customAppBar(title: 'Samoan Notes'),
       floatingActionButton:const NoteFloatingActionButton(),
       body: const NoteViewBody(),
     );
@@ -19,21 +20,3 @@ class NotesView extends StatelessWidget {
 }
 
 
-AppBar noteViewAppBar() {
-  return AppBar(
-    title: const Padding(
-      padding: EdgeInsets.only(left: 16),
-      child: Text('Samoan Notes'),
-    ),
-    centerTitle: false,
-    actions: [
-      Padding(
-        padding: const EdgeInsets.only(right: 24),
-        child: IconButton(
-          onPressed: () {},
-          icon: const Icon(Icons.search),
-        ),
-      )
-    ],
-  );
-}

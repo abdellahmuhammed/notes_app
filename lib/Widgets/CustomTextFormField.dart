@@ -15,7 +15,6 @@ class CustomTextFormField extends StatelessWidget {
   final Function(String)? onChanged;
   final Function(String)? onFieldSubmitted;
   final double radius;
-  final int minLines;
   final int maxLines;
 
   const CustomTextFormField({
@@ -31,7 +30,6 @@ class CustomTextFormField extends StatelessWidget {
     this.onChanged,
      this.onFieldSubmitted,
     this.radius =10,
-    this.minLines = 1,
     this.maxLines = 1,
   });
 
@@ -43,7 +41,6 @@ class CustomTextFormField extends StatelessWidget {
       controller: controller,
       obscureText: passwordSecure!,
       maxLines:maxLines,
-      minLines:minLines ,
         cursorColor:kPrimaryColor,
       decoration: InputDecoration(
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(radius)),
