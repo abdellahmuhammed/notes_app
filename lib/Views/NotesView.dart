@@ -9,13 +9,13 @@ class NotesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: notesAppBar(),
-      body: const NotesViewBody(),
+      appBar: noteAppBar(),
+      body: const NoteViewBody(),
     );
   }
 }
 
-AppBar notesAppBar() {
+AppBar noteAppBar() {
   return AppBar(
     title: const Padding(
       padding: EdgeInsets.only(left: 16),
@@ -35,8 +35,8 @@ AppBar notesAppBar() {
   );
 }
 
-class NotesViewBody extends StatelessWidget {
-  const NotesViewBody({super.key});
+class NoteViewBody extends StatelessWidget {
+  const NoteViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {

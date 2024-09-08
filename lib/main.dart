@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:notes_app/Shared/themes.dart';
-import 'package:notes_app/Views/HomeScreen.dart';
+import 'package:notes_app/Views/NotesView.dart';
 
 void main(){
 
@@ -15,7 +15,7 @@ class NotesApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: darkThem(),
+      theme: lightThem(),
       routes: {
         NotesView.id : (context)=> const NotesView()
       },

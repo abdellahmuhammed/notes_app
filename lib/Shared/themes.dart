@@ -150,9 +150,9 @@ ThemeData _themData({
       prefixIconColor: kPrimaryColor,
     ),
     floatingActionButtonTheme: FloatingActionButtonThemeData(
-      backgroundColor: kPrimaryColor,
-      foregroundColor: textColor,
-      elevation: 0.0,
+      iconSize: 35,
+      backgroundColor: textColor.withOpacity(.5),
+      foregroundColor: backgroundColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
       ),

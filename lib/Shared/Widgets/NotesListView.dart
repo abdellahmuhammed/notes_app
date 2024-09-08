@@ -6,12 +6,17 @@ class NotesListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
+    return ListView.builder(
       physics: const BouncingScrollPhysics(),
-      padding: const EdgeInsets.all(16),
       itemCount: 5,
-      itemBuilder: (context, index) => const NotesItem(),
-      separatorBuilder: (BuildContext context, int index) => const SizedBox(height: 8,),
+      itemBuilder: (context, index) => const Padding(
+        padding:  EdgeInsets.symmetric(
+            horizontal: 8,
+          vertical: 3
+
+        ),
+        child: NotesItem(),
+      ),
     );
   }
 }
