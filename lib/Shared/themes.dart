@@ -56,6 +56,7 @@ ThemeData _themData({
     iconTheme: _buildIconThemeData(color: textColor),
     iconButtonTheme: IconButtonThemeData(
       style: ButtonStyle(
+        padding: WidgetStateProperty.all(EdgeInsets.zero),
         backgroundColor: WidgetStateProperty.all(kPrimaryColor.withOpacity(.2)),
         foregroundColor: WidgetStateProperty.all(textColor),
         // child color
@@ -151,8 +152,8 @@ ThemeData _themData({
     ),
     floatingActionButtonTheme: FloatingActionButtonThemeData(
       iconSize: 35,
-      backgroundColor: textColor.withOpacity(.5),
-      foregroundColor: backgroundColor,
+      backgroundColor: kPrimaryColor.withOpacity(.6 ),
+      foregroundColor: textColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
       ),
@@ -188,5 +189,6 @@ _buildIconThemeData({required Color color, double size = 30}) {
   return IconThemeData(
     color: color,
     size: size,
+
   );
 }
