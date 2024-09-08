@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CustomNotesItem extends StatelessWidget {
-  const CustomNotesItem({
+class NotesItem extends StatelessWidget {
+  const NotesItem({
     super.key,
   });
 
