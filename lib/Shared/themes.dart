@@ -4,14 +4,14 @@ import 'package:notes_app/Shared/Constant.dart';
 
 ThemeData lightThem() {
   return _themData(
-      backgroundColor: Colors.grey,
+      backgroundColor: Colors.white,
       textColor: Colors.black,
       statusBarIconBrightness: Brightness.dark);
 }
 
 ThemeData darkThem() {
   return _themData(
-    backgroundColor: Colors.brown.shade900.withOpacity(.5),
+    backgroundColor: Colors.black12,
     textColor: Colors.white,
     statusBarIconBrightness: Brightness.light,
   );
@@ -57,7 +57,8 @@ ThemeData _themData({
     iconButtonTheme: IconButtonThemeData(
       style: ButtonStyle(
         padding: WidgetStateProperty.all(EdgeInsets.zero),
-        backgroundColor: WidgetStateProperty.all(kPrimaryColor.withOpacity(.2)),
+        backgroundColor:
+            WidgetStateProperty.all(kPrimaryColor.shade500.withOpacity(.99)),
         foregroundColor: WidgetStateProperty.all(textColor),
         // child color
         minimumSize: WidgetStateProperty.all<Size?>(
@@ -66,12 +67,6 @@ ThemeData _themData({
         shape: WidgetStatePropertyAll<RoundedRectangleBorder>(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
-          ),
-        ),
-        textStyle: WidgetStateProperty.all<TextStyle>(
-          const TextStyle(
-            fontSize: 30.0,
-            fontWeight: FontWeight.bold,
           ),
         ),
       ),
@@ -152,7 +147,7 @@ ThemeData _themData({
     ),
     floatingActionButtonTheme: FloatingActionButtonThemeData(
       iconSize: 35,
-      backgroundColor: kPrimaryColor.withOpacity(.6 ),
+      backgroundColor: kPrimaryColor.withOpacity(.6),
       foregroundColor: textColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
@@ -189,6 +184,5 @@ _buildIconThemeData({required Color color, double size = 30}) {
   return IconThemeData(
     color: color,
     size: size,
-
   );
 }

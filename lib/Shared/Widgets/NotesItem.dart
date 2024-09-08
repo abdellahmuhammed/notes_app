@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/Shared/Constant.dart';
 
 class NotesItem extends StatelessWidget {
   const NotesItem({
@@ -11,7 +12,7 @@ class NotesItem extends StatelessWidget {
       padding: const EdgeInsets.only(left: 4),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        color: Colors.white30,
+        color: Colors.grey.withOpacity(0.5),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
@@ -19,6 +20,7 @@ class NotesItem extends StatelessWidget {
           ListTile(
             trailing: IconButton(
               onPressed: () {},
+color: Colors.black,
               icon: const Icon(
                 Icons.delete,
                 size: 24,

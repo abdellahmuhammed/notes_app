@@ -1,16 +1,29 @@
+
 import 'package:flutter/material.dart';
+import 'package:notes_app/Shared/Constant.dart';
+import 'package:notes_app/Shared/Widgets/NoteShowModalBottomSheet.dart';
 import 'package:notes_app/Shared/Widgets/NotesListView.dart';
 
 class NotesView extends StatelessWidget {
   const NotesView({super.key});
 
   static String id = 'Home Screen';
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: noteAppBar(),
-      floatingActionButton: FloatingActionButton(onPressed: (){}, child:const Icon(Icons.add),),
+      floatingActionButton: FloatingActionButton(onPressed: (){
+        showModalBottomSheet(
+          context: context,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+            ),
+          ),
+          builder: (context )=> const NoteShowModalBottomSheet(),
+        );
+      }, child:const Icon(Icons.add),),
       body: const NoteViewBody(),
     );
   }
@@ -27,7 +40,6 @@ AppBar noteAppBar() {
       Padding(
         padding: const EdgeInsets.only(right: 24),
         child: IconButton(
-          style: const ButtonStyle(),
           onPressed: () {},
           icon: const Icon(Icons.search),
         ),
