@@ -6,16 +6,18 @@ class NoteShowModalBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
-
-      ),
-      child: Column(
-        children: [
-          CustomTextFormField(onFieldSubmitted: (String ) {  }, label: 'Enter',),
-          CustomTextFormField(onFieldSubmitted: (String ) {  }, label: 'Enter',),
-        ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 24,horizontal: 16),
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child:const  Column(
+          children: [
+            CustomTextFormField( label: 'Enter',),
+            CustomTextFormField( label: 'Enter',),
+          ],
+        ),
       ),
     );
   }

@@ -23,8 +23,8 @@ ThemeData _themData({
   required Brightness statusBarIconBrightness,
 }) {
   return ThemeData(
-    useMaterial3: true,
-    primarySwatch: kPrimaryColor,
+    useMaterial3: false,
+    primarySwatch: Colors.blueGrey,
     scaffoldBackgroundColor: backgroundColor,
     textTheme: TextTheme(
       headlineLarge: _buildTextStyle(
@@ -34,9 +34,9 @@ ThemeData _themData({
         color: Colors.grey,
       ),
       titleLarge: _buildTextStyle(color: textColor, size: 25),
-      titleSmall: _buildTextStyle(color: Colors.grey, size: 25),
+      titleSmall: _buildTextStyle(color: Colors.grey, size: 20),
       bodyLarge: _buildTextStyle(color: textColor, size: 20),
-      bodySmall: _buildTextStyle(color: Colors.grey, size: 20),
+      bodySmall: _buildTextStyle(color: Colors.grey, size: 16),
     ),
     appBarTheme: AppBarTheme(
       systemOverlayStyle: SystemUiOverlayStyle(
@@ -53,67 +53,67 @@ ThemeData _themData({
         fontWeight: FontWeight.bold,
       ),
     ),
-    iconTheme: _buildIconThemeData(color: textColor),
-    iconButtonTheme: IconButtonThemeData(
-      style: ButtonStyle(
-        padding: WidgetStateProperty.all(EdgeInsets.zero),
-        backgroundColor:
-            WidgetStateProperty.all(kPrimaryColor.shade500.withOpacity(.99)),
-        foregroundColor: WidgetStateProperty.all(textColor),
-        // child color
-        minimumSize: WidgetStateProperty.all<Size?>(
-          const Size(45, 45),
-        ),
-        shape: WidgetStatePropertyAll<RoundedRectangleBorder>(
-          RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
-          ),
-        ),
-      ),
-    ),
-    textButtonTheme: TextButtonThemeData(
-      style: ButtonStyle(
-        backgroundColor: WidgetStateProperty.all(kPrimaryColor),
-        foregroundColor: WidgetStateProperty.all(textColor),
-        // child color
-        minimumSize: WidgetStateProperty.all<Size?>(
-          const Size(double.infinity, 50),
-        ),
-        shape: WidgetStatePropertyAll<RoundedRectangleBorder>(
-          RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(3),
-          ),
-        ),
-        textStyle: WidgetStateProperty.all<TextStyle>(
-          const TextStyle(
-            fontSize: 30.0,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
-    ),
-    menuButtonTheme: MenuButtonThemeData(
-      style: ButtonStyle(
-        elevation: WidgetStateProperty.all(0.0),
-        backgroundColor: WidgetStateProperty.all(kPrimaryColor),
-        foregroundColor: WidgetStateProperty.all(textColor),
-        // child color
-        minimumSize: WidgetStateProperty.all<Size?>(
-          const Size(double.infinity, 50),
-        ),
-        shape: WidgetStatePropertyAll<RoundedRectangleBorder>(
-          RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
-          ),
-        ),
-        textStyle: WidgetStateProperty.all<TextStyle>(
-          const TextStyle(
-            fontSize: 30.0,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
-    ),
+    // iconTheme: _buildIconThemeData(color: textColor),
+    // iconButtonTheme: IconButtonThemeData(
+    //   style: ButtonStyle(
+    //     padding: WidgetStateProperty.all(EdgeInsets.zero),
+    //     backgroundColor:
+    //         WidgetStateProperty.all(kPrimaryColor.shade500.withOpacity(.99)),
+    //     foregroundColor: WidgetStateProperty.all(textColor),
+    //     // child color
+    //     minimumSize: WidgetStateProperty.all<Size?>(
+    //       const Size(45, 45),
+    //     ),
+    //     shape: WidgetStatePropertyAll<RoundedRectangleBorder>(
+    //       RoundedRectangleBorder(
+    //         borderRadius: BorderRadius.circular(8),
+    //       ),
+    //     ),
+    //   ),
+    // ),
+    // textButtonTheme: TextButtonThemeData(
+    //   style: ButtonStyle(
+    //     backgroundColor: WidgetStateProperty.all(kPrimaryColor),
+    //     foregroundColor: WidgetStateProperty.all(textColor),
+    //     // child color
+    //     minimumSize: WidgetStateProperty.all<Size?>(
+    //       const Size(double.infinity, 50),
+    //     ),
+    //     shape: WidgetStatePropertyAll<RoundedRectangleBorder>(
+    //       RoundedRectangleBorder(
+    //         borderRadius: BorderRadius.circular(3),
+    //       ),
+    //     ),
+    //     textStyle: WidgetStateProperty.all<TextStyle>(
+    //       const TextStyle(
+    //         fontSize: 30.0,
+    //         fontWeight: FontWeight.bold,
+    //       ),
+    //     ),
+    //   ),
+    // ),
+    // menuButtonTheme: MenuButtonThemeData(
+    //   style: ButtonStyle(
+    //     elevation: WidgetStateProperty.all(0.0),
+    //     backgroundColor: WidgetStateProperty.all(kPrimaryColor),
+    //     foregroundColor: WidgetStateProperty.all(textColor),
+    //     // child color
+    //     minimumSize: WidgetStateProperty.all<Size?>(
+    //       const Size(double.infinity, 50),
+    //     ),
+    //     shape: WidgetStatePropertyAll<RoundedRectangleBorder>(
+    //       RoundedRectangleBorder(
+    //         borderRadius: BorderRadius.circular(8),
+    //       ),
+    //     ),
+    //     textStyle: WidgetStateProperty.all<TextStyle>(
+    //       const TextStyle(
+    //         fontSize: 30.0,
+    //         fontWeight: FontWeight.bold,
+    //       ),
+    //     ),
+    //   ),
+    // ),
     inputDecorationTheme: InputDecorationTheme(
       // filled: true,
       // fillColor: Colors.grey.withOpacity(0.7),
@@ -135,9 +135,9 @@ ThemeData _themData({
         ),
         borderRadius: BorderRadius.circular(8),
       ),
-      labelStyle: TextStyle(
+      labelStyle: const TextStyle(
         overflow: TextOverflow.ellipsis,
-        color: backgroundColor.withOpacity(0.1),
+        color: Colors.grey,
         fontSize: 25.0,
         fontWeight: FontWeight.bold,
       ),
@@ -147,10 +147,10 @@ ThemeData _themData({
     ),
     floatingActionButtonTheme: FloatingActionButtonThemeData(
       iconSize: 35,
-      backgroundColor: kPrimaryColor.withOpacity(.6),
-      foregroundColor: textColor,
+      backgroundColor: Colors.blueGrey,
+      foregroundColor: backgroundColor,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(50),
       ),
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(

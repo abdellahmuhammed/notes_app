@@ -6,13 +6,13 @@ class CustomTextFormField extends StatelessWidget {
   final GlobalKey<FormState>? formKey;
   final String label;
   final TextEditingController? controller;
-  final IconData? prefixIcon;
-  final IconData? suffixIcon;
+  final Widget? prefixIcon;
+  final Widget? suffixIcon;
   final bool? passwordSecure;
   final String stringValidate;
   final TextInputType? keyboardType;
   final Function(String)? onChanged;
-  final Function(String) onFieldSubmitted;
+  final Function(String)? onFieldSubmitted;
   final double radius;
 
   const CustomTextFormField({
@@ -26,7 +26,7 @@ class CustomTextFormField extends StatelessWidget {
     this.passwordSecure = false,
     this.keyboardType,
     this.onChanged,
-    required this.onFieldSubmitted,
+     this.onFieldSubmitted,
     this.radius =10,
   });
 
@@ -40,11 +40,8 @@ class CustomTextFormField extends StatelessWidget {
       decoration: InputDecoration(
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(radius)),
         label: Text(label, maxLines: 1, overflow: TextOverflow.ellipsis),
-        prefixIcon: Icon(prefixIcon),
-        suffixIcon: IconButton(
-          onPressed: () {},
-          icon: Icon(suffixIcon),
-        ),
+        prefixIcon: prefixIcon,
+        suffixIcon: suffixIcon
       ),
       onFieldSubmitted: onFieldSubmitted,
     );
