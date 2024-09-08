@@ -14,10 +14,12 @@ class AddNoteShowModalBottomSheet extends StatelessWidget {
         child: Column(
           children: [
            const CustomTextFormField( label: 'title'),
+            const  SizedBox(height: 30,),
+            const CustomTextFormField( label: 'time'),
             const  SizedBox(height: 20,),
             const CustomTextFormField( label: 'content' ,maxLines: 8, keyboardType: TextInputType.multiline, ),
-            const  SizedBox(height: 30,),
 
+            const  SizedBox(height: 20,),
             CustomMaterialButton(text: 'Add', onTap: (){})
           ],
         ),
