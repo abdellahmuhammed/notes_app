@@ -53,7 +53,6 @@ ThemeData _themData({
         fontWeight: FontWeight.bold,
       ),
     ),
-
     floatingActionButtonTheme: FloatingActionButtonThemeData(
       iconSize: 35,
       backgroundColor: kPrimaryColor,
@@ -62,7 +61,6 @@ ThemeData _themData({
         borderRadius: BorderRadius.circular(16),
       ),
     ),
-
     inputDecorationTheme: InputDecorationTheme(
       // filled: true,
       // fillColor: Colors.grey.withOpacity(0.7),
@@ -166,7 +164,6 @@ OutlineInputBorder _buildOutlineInputBorder([Color? color = Colors.white]) {
     borderRadius: BorderRadius.circular(8),
   );
 }
-
 _buildTextStyle(
     {required Color color,
     double size = 30,

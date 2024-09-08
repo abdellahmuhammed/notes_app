@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/Widgets/AddNoteShowModalBottomSheet.dart';
-import 'package:notes_app/Widgets/NotesListView.dart';
+import 'package:notes_app/Widgets/NoteFloatingActionButton.dart';
+import 'package:notes_app/Widgets/NoteViewBody.dart';
 
 class NotesView extends StatelessWidget {
   const NotesView({super.key});
@@ -10,38 +10,15 @@ class NotesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: noteAppBar(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          showModalBottomSheet(
-            context: context,
-            backgroundColor: const Color(0xFFB1B3A6),
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(20),
-                topRight: Radius.circular(20),
-              ),
-            ),
-            builder: (context) => const AddNoteShowModalBottomSheet(),
-          );
-        },
-        child: const Icon(Icons.add),
-      ),
+      appBar: noteViewAppBar(),
+      floatingActionButton:const NoteFloatingActionButton(),
       body: const NoteViewBody(),
     );
   }
 }
 
-class NoteViewBody extends StatelessWidget {
-  const NoteViewBody({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return const NotesListView();
-  }
-}
-
-AppBar noteAppBar() {
+AppBar noteViewAppBar() {
   return AppBar(
     title: const Padding(
       padding: EdgeInsets.only(left: 16),
