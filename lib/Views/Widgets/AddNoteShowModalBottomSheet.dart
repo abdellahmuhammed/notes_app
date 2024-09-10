@@ -2,8 +2,8 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:notes_app/Widgets/CustomMaterialButton.dart';
-import 'package:notes_app/Widgets/CustomTextFormField.dart';
+import 'package:notes_app/Views/Widgets/CustomTextFormField.dart';
+import 'package:notes_app/Views/Widgets/CustomMaterialButton.dart';
 
 class AddNoteShowModalBottomSheet extends StatefulWidget {
   const AddNoteShowModalBottomSheet({super.key});

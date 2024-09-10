@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/Widgets/CustomMaterialButton.dart';
-import 'package:notes_app/Widgets/CustomTextFormField.dart';
+import 'package:notes_app/Views/Widgets/CustomMaterialButton.dart';
+import 'package:notes_app/Views/Widgets/CustomTextFormField.dart';
 
 class EditBodyNoteView extends StatelessWidget {
   const EditBodyNoteView({super.key});

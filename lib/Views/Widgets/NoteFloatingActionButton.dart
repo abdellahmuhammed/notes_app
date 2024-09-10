@@ -1,6 +1,6 @@
 // ignore_for_file: file_names
 import 'package:flutter/material.dart';
-import 'package:notes_app/Widgets/AddNoteShowModalBottomSheet.dart';
+import 'package:notes_app/Views/Widgets/AddNoteShowModalBottomSheet.dart';
 
 class NoteFloatingActionButton extends StatelessWidget {
   const NoteFloatingActionButton({

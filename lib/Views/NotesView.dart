@@ -1,8 +1,8 @@
 // ignore_for_file: file_names
 import 'package:flutter/material.dart';
 import 'package:notes_app/Shared/component.dart';
-import 'package:notes_app/Widgets/NoteFloatingActionButton.dart';
-import 'package:notes_app/Widgets/NoteViewBody.dart';
+import 'package:notes_app/Views/Widgets/NoteFloatingActionButton.dart';
+import 'package:notes_app/Views/Widgets/NoteViewBody.dart';
 
 class NotesView extends StatelessWidget {
   const NotesView({super.key});

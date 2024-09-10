@@ -1,6 +1,6 @@
 // ignore_for_file: file_names
 import 'package:flutter/material.dart';
-import 'package:notes_app/Widgets/NotesItem.dart';
+import 'package:notes_app/Views/Widgets/NotesItem.dart';
 
 class NotesListView extends StatelessWidget {
   const NotesListView({super.key});
