@@ -12,6 +12,7 @@ class NoteFloatingActionButton extends StatelessWidget {
     return FloatingActionButton(
       onPressed: () {
         showModalBottomSheet(
+          isScrollControlled: false,
           context: context,
           backgroundColor: const Color(0xFFB1B3A6),
           shape: const RoundedRectangleBorder(
