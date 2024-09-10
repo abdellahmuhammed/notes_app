@@ -16,6 +16,8 @@ class CustomTextFormField extends StatelessWidget {
   final Function(String)? onFieldSubmitted;
   final double radius;
   final int maxLines;
+  final void Function(String?)? onSaved;
+  final String validateString;
 
   const CustomTextFormField({
     super.key,
@@ -31,11 +33,14 @@ class CustomTextFormField extends StatelessWidget {
      this.onFieldSubmitted,
     this.radius =10,
     this.maxLines = 1,
+    this.onSaved,
+    this.validateString = 'field is missed'
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onSaved: onSaved,
       onChanged: onChanged,
       keyboardType: keyboardType,
       controller: controller,
@@ -49,6 +54,18 @@ class CustomTextFormField extends StatelessWidget {
         suffixIcon: suffixIcon
       ),
       onFieldSubmitted: onFieldSubmitted,
+      validator: (value){
+        return _buildValidate(value , validateString);
+      },
     );
+  }
+
+}
+
+String? _buildValidate(String? value , String validateString ) {
+  if(value?.isEmpty ?? true){
+    return validateString;
+  } else{
+    return null;
   }
 }

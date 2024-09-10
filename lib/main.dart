@@ -4,10 +4,12 @@ import 'package:notes_app/Shared/Constant.dart';
 import 'package:notes_app/Shared/themes.dart';
 import 'package:notes_app/Views/EditNoteView.dart';
 import 'package:notes_app/Views/NotesView.dart';
+import 'package:notes_app/models/NoteModel.dart';
 
 void main() async {
   await Hive.initFlutter();
   await Hive.openBox(kNoteBox);
+  Hive.registerAdapter(NoteModelAdapter());
   runApp(const NotesApp());
 }
 
