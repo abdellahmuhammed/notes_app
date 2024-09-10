@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:notes_app/Shared/component.dart';
 import 'package:notes_app/Views/Widgets/EditBodyNoteView.dart';
