@@ -10,7 +10,6 @@ class CustomTextFormField extends StatelessWidget {
   final Widget? prefixIcon;
   final Widget? suffixIcon;
   final bool? passwordSecure;
-  final String stringValidate;
   final TextInputType? keyboardType;
   final Function(String)? onChanged;
   final Function(String)? onFieldSubmitted;
@@ -24,7 +23,6 @@ class CustomTextFormField extends StatelessWidget {
     this.formKey,
     required this.label,
     this.prefixIcon,
-    this.stringValidate = 'some info is missed',
     this.suffixIcon,
     this.controller,
     this.passwordSecure = false,
