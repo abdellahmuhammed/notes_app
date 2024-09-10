@@ -1,9 +1,9 @@
 // ignore_for_file: file_names
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:notes_app/Views/Widgets/AddNoteForm.dart';
 import 'package:notes_app/cubits/add_note_cubit/add_note_cubit.dart';
-
 
 class AddNoteShowModalBottomSheet extends StatelessWidget {
   const AddNoteShowModalBottomSheet({super.key});
@@ -16,10 +16,12 @@ class AddNoteShowModalBottomSheet extends StatelessWidget {
         child: BlocProvider(
           create: (context) => AddNoteCubit(),
           child: BlocConsumer<AddNoteCubit, AddNoteState>(
-            listener: (context, state) {
-            },
+            listener: (context, state) {},
             builder: (context, state) {
-              return const AddNoteForm();
+              return ModalProgressHUD(
+                inAsyncCall: state is AddNoteLoadingState ? true : false,
+                child: const AddNoteForm(),
+              );
             },
           ),
         ),
