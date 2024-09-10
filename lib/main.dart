@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/adapters.dart';
+import 'package:notes_app/Shared/Constant.dart';
 import 'package:notes_app/Shared/themes.dart';
 import 'package:notes_app/Views/EditNoteView.dart';
 import 'package:notes_app/Views/NotesView.dart';
-import 'package:notes_app/Widgets/EditBodyNoteView.dart';
 
-void main() {
+void main() async {
+  await Hive.initFlutter();
+  await Hive.openBox(kNoteBox);
   runApp(const NotesApp());
 }
 
