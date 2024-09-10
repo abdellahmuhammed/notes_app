@@ -17,7 +17,6 @@ class AddNoteShowModalBottomSheet extends StatelessWidget {
           create: (context) => AddNoteCubit(),
           child: BlocConsumer<AddNoteCubit, AddNoteState>(
             listener: (context, state) {
-              // TODO: implement listener
             },
             builder: (context, state) {
               return const AddNoteForm();
