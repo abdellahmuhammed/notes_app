@@ -10,6 +10,7 @@ class CustomMaterialButton extends StatelessWidget {
   final double height;
   final double radius;
   final VoidCallback onTap;
+  final bool isLoading;
 
   const CustomMaterialButton({
     super.key,
@@ -18,7 +19,7 @@ class CustomMaterialButton extends StatelessWidget {
     this.height = 50,
     this.radius = 10,
     required this.onTap,
-     this.color = kPrimaryColor,
+     this.color = kPrimaryColor,  this.isLoading=false,
   });
 
   @override
@@ -31,8 +32,7 @@ class CustomMaterialButton extends StatelessWidget {
       minWidth: minWidth,
       color: color,
       onPressed:onTap ,
-      child: Text(
-        text,
+      child: isLoading ?const  CircularProgressIndicator(color: Colors.blue , strokeWidth: 3,strokeCap: StrokeCap.butt,): Text( text,
         style: Theme.of(context).textTheme.titleLarge,
       ),
     );
