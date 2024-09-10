@@ -16,7 +16,15 @@ class AddNoteShowModalBottomSheet extends StatelessWidget {
         child: BlocProvider(
           create: (context) => AddNoteCubit(),
           child: BlocConsumer<AddNoteCubit, AddNoteState>(
-            listener: (context, state) {},
+            listener: (context, state) {
+              if(state is AddNoteSuccessfullyState){
+                debugPrint('Add Note Successfully');
+              Navigator.pop(context);
+              }
+              else if (state is AddNoteFailureState){
+              debugPrint('failed when Add Note ${state.errorMessage}');
+              }
+            },
             builder: (context, state) {
               return ModalProgressHUD(
                 inAsyncCall: state is AddNoteLoadingState ? true : false,
