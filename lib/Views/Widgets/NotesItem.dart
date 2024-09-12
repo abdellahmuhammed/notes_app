@@ -1,12 +1,14 @@
 // ignore_for_file: file_names
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:notes_app/Views/EditNoteView.dart';
+import 'package:notes_app/models/NoteModel.dart';
 
 class NotesItem extends StatelessWidget {
   const NotesItem({
-    super.key,
+    super.key, required this.noteModel,
   });
-
+final NoteModel noteModel;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -17,7 +19,7 @@ class NotesItem extends StatelessWidget {
         padding: const EdgeInsets.only(left: 4),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
-          color: Colors.grey.withOpacity(0.5),
+          color: Color(noteModel.color),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
@@ -34,19 +36,19 @@ class NotesItem extends StatelessWidget {
               title: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 child: Text(
-                  'Flutter tips',
+                  noteModel.title,
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
               ),
               subtitle: Text(
-                'BuildBuild flutter with any oneBuild flutter with any oneBuild flutter with any oneBuild flutter with any one flutter with any one ',
+                  noteModel.subTitle,
                 style: Theme.of(context).textTheme.bodySmall,
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(right: 24, top: 8, bottom: 24),
               child: Text(
-                '8/may/2024',
+                DateFormat('d-M-y  At h:m: a').format(DateTime.parse(noteModel.date)) ,
                 style: Theme.of(context).textTheme.bodySmall,
               ),
             )
