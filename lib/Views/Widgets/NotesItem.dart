@@ -72,9 +72,32 @@ class NotesItem extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          content: const Text('Do you want to delete that ?'),
+          backgroundColor: Colors.blue,
+          title: const Row(
+            children: [
+              Icon(Icons.warning, color: Colors.red),
+              SizedBox(width: 10),
+              Text("ٍSignificant"),
+            ],
+          ),
+          content: Text(
+            "Do you want to delete that ?",
+            style: Theme.of(context).textTheme.titleLarge,
+          ),
           actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text(
+                'cancel',
+                style: Theme.of(context).textTheme.titleSmall,
+              ),
+            ),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.green,
+              ),
               onPressed: () {
                 noteModel.delete();
                 BlocProvider.of<NotesCubit>(context).fetchNotes();
@@ -82,12 +105,6 @@ class NotesItem extends StatelessWidget {
                 Navigator.of(context).pop();
               },
               child: const Text('ok'),
-            ),
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: const Text('cancel'),
             ),
           ],
         );
