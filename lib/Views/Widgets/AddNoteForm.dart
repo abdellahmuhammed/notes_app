@@ -24,9 +24,10 @@ class _AddNoteFormState extends State<AddNoteForm> {
   final List<Color> myColors = [
     Colors.red[200]!,
     Colors.green[200]!,
-    Colors.orange[300]!,
+    Colors.orange[200]!,
     Colors.purple[400]!,
-    Colors.yellow[300]!,
+    Colors.pinkAccent[400]!,
+    Colors.blue[300]!,
   ];
 
   @override
@@ -62,40 +63,44 @@ class _AddNoteFormState extends State<AddNoteForm> {
           const SizedBox(
             height: 20,
           ),
-          BlocBuilder<AddNoteCubit, AddNoteState>(
-            builder: (context, state) {
-              return CustomMaterialButton(
-                isLoading: state is AddNoteLoadingState,
-                text: 'Add',
-                onTap: () {
-                  if (formKey.currentState!.validate()) {
-                    formKey.currentState!.save();
-
-                    // اختيار لون عشوائي من القائمة
-                    final randomColor =
-                        myColors[Random().nextInt(myColors.length)].value;
-
-                    NoteModel noteModel = NoteModel(
-                      title: title!,
-                      subTitle: subTitle!,
-                      date: DateTime.now().toString(),
-                      color: randomColor, // حفظ اللون العشوائي
-                    );
-                    buildScaffoldMessage(context,
-                        message: 'Added successfully');
-                    BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
-                  } else {
-                    setState(() {
-                      autoValidateMode = AutovalidateMode.always;
-                    });
-                  }
-                },
-              );
-            },
-          ),
+          _buildAddButton(),
         ],
       ),
     );
+  }
+
+  BlocBuilder<AddNoteCubit, AddNoteState> _buildAddButton() {
+    return BlocBuilder<AddNoteCubit, AddNoteState>(
+          builder: (context, state) {
+            return CustomMaterialButton(
+              isLoading: state is AddNoteLoadingState,
+              text: 'Add',
+              onTap: () {
+                if (formKey.currentState!.validate()) {
+                  formKey.currentState!.save();
+
+                  // اختيار لون عشوائي من القائمة
+                  final randomColor =
+                      myColors[Random().nextInt(myColors.length)].value;
+
+                  NoteModel noteModel = NoteModel(
+                    title: title!,
+                    subTitle: subTitle!,
+                    date: DateTime.now().toString(),
+                    color: randomColor, // حفظ اللون العشوائي
+                  );
+                  buildScaffoldMessage(context,
+                      message: 'Added successfully');
+                  BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
+                } else {
+                  setState(() {
+                    autoValidateMode = AutovalidateMode.always;
+                  });
+                }
+              },
+            );
+          },
+        );
   }
 }
 
