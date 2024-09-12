@@ -7,8 +7,6 @@ import 'package:notes_app/Views/Widgets/NoteViewBody.dart';
 class NotesView extends StatelessWidget {
   const NotesView({super.key});
 
-  static String id = 'Home Screen';
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

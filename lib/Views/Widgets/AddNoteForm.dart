@@ -67,13 +67,14 @@ class _AddNoteFormState extends State<AddNoteForm> {
                 text:  'Add' ,
                 onTap: () {
                   if (formKey.currentState!.validate()) {
-                    formKey.currentState!.save();
                     NoteModel noteModel = NoteModel(
                       title: title!,
                       subTitle: subTitle!,
                       date: DateTime.now().toString(),
                       color: Colors.blue.value,
                     );
+                    formKey.currentState!.save();
+                    noteModel.save();
                     buildScaffoldMessage(context, message: 'Added successfully');
                     BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
                   } else {

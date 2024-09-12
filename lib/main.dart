@@ -4,7 +4,6 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:notes_app/MyBlocObserver.dart';
 import 'package:notes_app/Shared/Constant.dart';
 import 'package:notes_app/Shared/themes.dart';
-import 'package:notes_app/Views/EditNoteView.dart';
 import 'package:notes_app/Views/NotesView.dart';
 import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notes_app/models/NoteModel.dart';
@@ -28,11 +27,7 @@ class NotesApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: darkThem(),
-        routes: {
-          NotesView.id: (context) => const NotesView(),
-          EditNoteView.id: (context) => const EditNoteView(),
-        },
-        initialRoute: NotesView.id,
+        home: const NotesView(),
       ),
     );
   }
