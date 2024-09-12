@@ -1,18 +1,24 @@
 // ignore_for_file: file_names
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+import 'package:notes_app/Shared/component.dart';
 import 'package:notes_app/Views/EditNoteView.dart';
+import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notes_app/models/NoteModel.dart';
 
 class NotesItem extends StatelessWidget {
   const NotesItem({
-    super.key, required this.noteModel,
+    super.key,
+    required this.noteModel,
   });
-final NoteModel noteModel;
+
+  final NoteModel noteModel;
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){
+      onTap: () {
         Navigator.of(context).pushNamed(EditNoteView.id);
       },
       child: Container(
@@ -26,7 +32,9 @@ final NoteModel noteModel;
           children: [
             ListTile(
               trailing: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  _buildDeleteIcon(context);
+                },
                 color: Colors.black,
                 icon: const Icon(
                   Icons.delete,
@@ -41,20 +49,49 @@ final NoteModel noteModel;
                 ),
               ),
               subtitle: Text(
-                  noteModel.subTitle,
+                noteModel.subTitle,
                 style: Theme.of(context).textTheme.bodySmall,
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(right: 24, top: 8, bottom: 24),
               child: Text(
-                DateFormat('d-M-y  At h:m: a').format(DateTime.parse(noteModel.date)) ,
+                DateFormat('d-M-y  At h:m: a')
+                    .format(DateTime.parse(noteModel.date)),
                 style: Theme.of(context).textTheme.bodySmall,
               ),
             )
           ],
         ),
       ),
+    );
+  }
+
+  void _buildDeleteIcon(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          content: const Text('Do you want to delete that ?'),
+          actions: [
+            ElevatedButton(
+              onPressed: () {
+                noteModel.delete();
+                BlocProvider.of<NotesCubit>(context).fetchNotes();
+                buildScaffoldMessage(context, message: 'Deleted successfully');
+                Navigator.of(context).pop();
+              },
+              child: const Text('ok'),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('cancel'),
+            ),
+          ],
+        );
+      },
     );
   }
 }

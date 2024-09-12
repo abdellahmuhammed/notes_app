@@ -18,3 +18,10 @@ AppBar customAppBar({required String title, IconData? icon}) {
     ],
   );
 }
+void buildScaffoldMessage(BuildContext context, {required String message}) {
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      content: Text(message),
+    ),
+  );
+}
