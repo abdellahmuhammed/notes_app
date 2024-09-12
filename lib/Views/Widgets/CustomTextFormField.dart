@@ -60,8 +60,9 @@ class CustomTextFormField extends StatelessWidget {
 
 }
 
-String? _buildValidate(String? value , String validateString ) {
-  if(value?.isEmpty ?? true){
+_buildValidate(String? value , String validateString ) {
+ // value.trim().isEmpty  دي لو مسافه او اكتر
+  if(value == null || value.isEmpty || value.trim().isEmpty) {
     return validateString;
   } else{
     return null;
