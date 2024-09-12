@@ -1,5 +1,4 @@
-// ignore_for_file: file_names
-
+import 'dart:math'; // لاستيراد مكتبة العشوائية
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/Shared/component.dart';
@@ -20,7 +19,15 @@ class _AddNoteFormState extends State<AddNoteForm> {
 
   AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
 
-  String? title, subTitle, time;
+  String? title, subTitle;
+
+  final List<Color> myColors = [
+    Colors.red[200]!,
+    Colors.green[200]!,
+    Colors.orange[300]!,
+    Colors.purple[400]!,
+    Colors.yellow[300]!,
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +36,9 @@ class _AddNoteFormState extends State<AddNoteForm> {
       autovalidateMode: autoValidateMode,
       child: Column(
         children: [
-          const SizedBox(height: 35,),
+          const SizedBox(
+            height: 35,
+          ),
           CustomTextFormField(
             label: 'title',
             onSaved: (value) {
@@ -39,13 +48,6 @@ class _AddNoteFormState extends State<AddNoteForm> {
           const SizedBox(
             height: 30,
           ),
-          // CustomTextFormField(
-          //   label: 'time',
-          //   validateString: 'time was missed',
-          //   onSaved: (value) {
-          //     time = value;
-          //   },
-          // ),
           const SizedBox(
             height: 20,
           ),
@@ -64,21 +66,28 @@ class _AddNoteFormState extends State<AddNoteForm> {
             builder: (context, state) {
               return CustomMaterialButton(
                 isLoading: state is AddNoteLoadingState,
-                text:  'Add' ,
+                text: 'Add',
                 onTap: () {
                   if (formKey.currentState!.validate()) {
+                    formKey.currentState!.save();
+
+                    // اختيار لون عشوائي من القائمة
+                    final randomColor =
+                        myColors[Random().nextInt(myColors.length)].value;
+
                     NoteModel noteModel = NoteModel(
                       title: title!,
                       subTitle: subTitle!,
                       date: DateTime.now().toString(),
-                      color: Colors.blue.value,
+                      color: randomColor, // حفظ اللون العشوائي
                     );
-                    formKey.currentState!.save();
-                    noteModel.save();
-                    buildScaffoldMessage(context, message: 'Added successfully');
+                    buildScaffoldMessage(context,
+                        message: 'Added successfully');
                     BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
                   } else {
-                    autoValidateMode = AutovalidateMode.always;
+                    setState(() {
+                      autoValidateMode = AutovalidateMode.always;
+                    });
                   }
                 },
               );
@@ -89,3 +98,5 @@ class _AddNoteFormState extends State<AddNoteForm> {
     );
   }
 }
+
+
